@@ -15,15 +15,24 @@
 # 62 + 82 = 100
 # 12 + 02 + 02 = 1
 
-seen = set()
-
 def isHappy(n):
-    if n==1:
+        seen = set()
+        while n != 1:
+            if n in seen:
+                return False
+            seen.add(n)
+            n = sum(int(x)**2 for x in str(n))
         return True
-    if n in seen:
-        return False
-    seen.add(n)
-    return isHappy(sum(int(x)**2 for x in str(n)))
+
+# seen = set()
+
+# def isHappy(n):
+#     if n==1:
+#         return True
+#     if n in seen:
+#         return False
+#     seen.add(n)
+#     return isHappy(sum(int(x)**2 for x in str(n)))
 
 print(isHappy(78999))   # True
 
