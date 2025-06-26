@@ -16,4 +16,5 @@ def twoSum(nums, target):
         
 
 print(twoSum([2,8,11,15], 17))
+print('---------------------')
 print(twoSum([2,8,11,15], 7))
