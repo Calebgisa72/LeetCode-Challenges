@@ -14,15 +14,20 @@
 def floodFill(image, sr, sc, color):
     rows,cols = len(image), len(image[0])
     originalColor = image[sr][sc]
-    output = []
+    if originalColor == color:
+        return
+    
+    def dfs(i,j):
+        if i >= 0 and i < rows and  j >=0 and j < cols and originalColor == image[i][j]:
+            image[i][j] = color
+            dfs(i+1,j)
+            dfs(i-1,j)
+            dfs(i,j+1)
+            dfs(i,j-1)
+    
+    dfs(sr,sc)
+    return image
 
-    for i in range(rows):
-        outputRow = []
-        for j in range(cols):
-            outputRow.append(color if image[i][j] == originalColor else image[i][j])
-        output.append(outputRow)
-
-    return output
 
 print(floodFill([[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2))
     
