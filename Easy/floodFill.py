@@ -15,7 +15,7 @@ def floodFill(image, sr, sc, color):
     rows,cols = len(image), len(image[0])
     originalColor = image[sr][sc]
     if originalColor == color:
-        return
+        return image
     
     def dfs(i,j):
         if i >= 0 and i < rows and  j >=0 and j < cols and originalColor == image[i][j]:
