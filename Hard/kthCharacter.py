@@ -10,13 +10,15 @@
 
 # Note that the character 'z' can be changed to 'a' in the second type of operation.
 
-# # def kthCharacter(self, k, operations):
-# #     word = 'a'
+def kthCharacter(k, operations):
+    word = 'a'
 
-# #     for opp in operations:
-# #         if opp == 0:
-# #             word += word
-# #         elif opp == 1:
-             
-
-# print(ord('a'))
+    for opp in operations:
+        if opp == 0:
+            word += word
+        elif opp == 1:
+            word += ''.join(chr(x+1) if x != 122 else 'a' for x in [ord(y) for y in word])
+        
+    return word[k-1]
+    
+print(kthCharacter(10,[0,1,0,1]))
