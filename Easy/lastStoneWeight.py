@@ -21,7 +21,7 @@ def lastStoneWeight(stones):
         if (heavyStone != secondHeavy):
             heapq.heappush(stones, -(heavyStone - secondHeavy))
     
-    return -stones[0]
+    return -stones[0] if stones else 0
 
 print(lastStoneWeight([2,7,4,1,8,1]))
 
