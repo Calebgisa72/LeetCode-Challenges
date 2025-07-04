@@ -6,3 +6,19 @@
 # Input: matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
 # Output: 13
 # Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13
+
+def kthSmallest(matrix, k):
+    allMatrix = []
+    for m in matrix:
+        allMatrix += m
+
+    import heapq
+
+    heapq.heapify(allMatrix)
+
+    for _ in range(k-1):
+        heapq.heappop(allMatrix)
+    
+    return heapq.heappop(allMatrix)
+
+print(kthSmallest([[1,5,9],[10,11,13],[12,13,15]], 8))
