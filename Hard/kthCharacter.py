@@ -5,7 +5,7 @@
 # Now Bob will ask Alice to perform all operations in sequence:
 
 # If operations[i] == 0, append a copy of word to itself.
-# If operations[i] == 1, generate a new string by changing each character in word to its next character in the English alphabet, and append it to the original word. For example, performing the operation on "c" generates "cd" and performing the operation on "zb" generates "aczb".
+# If operations[i] == 1, generate a new string by changing each character in word to its next character in the English alphabet, and append it to the original word. For example, performing the operation on "c" generates "cd" and performing the operation on "zb" generates "zbac".
 # Return the value of the kth character in word after performing all the operations.
 
 # Note that the character 'z' can be changed to 'a' in the second type of operation.
