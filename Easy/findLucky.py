@@ -21,11 +21,13 @@ def findLucky(arr):
         if arr[r] != arr[l]:
             if arr[l] == r-l:
                 luckyNum = max(luckyNum,arr[l])
+                l = r
             else:
                 l = r
         elif r == len(arr) - 1:
             if arr[l] == (r+1)-l:
                 luckyNum = max(luckyNum,arr[l])
+                
     return luckyNum
 
-print(findLucky([2,2,3,4]))
+print(findLucky([[1,2,2,3,3,3]]))
