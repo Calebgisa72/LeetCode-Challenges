@@ -14,20 +14,19 @@
 # Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
 
 def findLucky(arr):
-    l = 0
     luckyNum = -1
+    l = 0
+    n = len(arr)
 
-    for r in range(len(arr)):
+    for r in range(n):
         if arr[r] != arr[l]:
-            if arr[l] == r-l:
-                luckyNum = max(luckyNum,arr[l])
-                l = r
-            else:
-                l = r
-        elif r == len(arr) - 1:
-            if arr[l] == (r+1)-l:
-                luckyNum = max(luckyNum,arr[l])
-                
+            if r - l == arr[l]:
+                luckyNum = max(luckyNum, arr[l])
+            l = r
+    
+    if n - l == arr[l]:
+        luckyNum = max(luckyNum, arr[l])
+
     return luckyNum
 
-print(findLucky([[1,2,2,3,3,3]]))
+print(findLucky([1,2,2,3,3,3]))
