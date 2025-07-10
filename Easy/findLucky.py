@@ -18,7 +18,6 @@ def findLucky(arr):
     luckyNum = -1
 
     for r in range(len(arr)):
-    
         if arr[r] != arr[l]:
             if arr[l] == r-l:
                 luckyNum = max(luckyNum,arr[l])
