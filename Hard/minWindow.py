@@ -45,4 +45,4 @@ def minWindow(s, t):
     return minWin
 
 
-print(minWindow('ADOAFBECODEBN', "ABC"))
+print(minWindow('ADOAFBECODEBAN', "ABC"))
