@@ -23,7 +23,6 @@ def minWindow(s, t):
         initT[chr] = initT.get(chr,0) + 1
 
     l = 0
-    mid = (l,0)
     minWin = ''
 
     print(zeroT)
@@ -34,15 +33,14 @@ def minWindow(s, t):
         if s[r] in initT:
             if initT[s[r]] > 0:
                initT[s[r]] -= 1
-               if initT[s[r]] == 0:
-                    mid = (mid[1], r)
-            else:
-                l = mid[1]
 
-        if initT == zeroT:
+        while initT == zeroT:
             minWin = s[l:] if r == m-1 else s[l:r+1]
+            l += 1
+            if s[l] in initT:
+                initT[s[l]] = 1
     
     return minWin
 
 
-print(minWindow('ADOAFBECODEBAN', "ABC"))
+print(minWindow('ADOBECODEBANC', "ABC"))
