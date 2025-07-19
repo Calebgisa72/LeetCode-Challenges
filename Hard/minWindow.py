@@ -15,33 +15,35 @@ def minWindow(s, t):
     
     if m < n:
         return ''
-
-    zeroT = {}
-    initT = {}
-
-    for chr in t:
-        zeroT[chr] = 0
-        initT[chr] = initT.get(chr,0) + 1
-
-    l = 0
-    minWin = ''
-
-    print(zeroT)
-
-    print(initT)
-
-    for r in range(m):
-        if s[r] in initT:
-            if initT[s[r]] > 0:
-               initT[s[r]] -= 1
-
-        while initT == zeroT:
-            minWin = s[l:] if r == m-1 else s[l:r+1]
-            l += 1
-            if s[l] in initT:
-                initT[s[l]] = 1
     
-    return minWin
+    r=0
+    l=0
+    minWin = float('inf')
+    i=0
+    window_range = ()
+    tClone = t
+
+    while i < m:
+        if s[i] in tClone:
+            if r == l and tClone == t:
+                l = i
+            else:
+                r = i
+            tClone = tClone.replace(s[i], '', 1)
+            
+        if len(tClone) == 0:
+            w= r-l+1
+            if (minWin > w):
+                window_range = (l,r)
+                minWin = w
+            i = l
+            l += 1
+            r = l
+            tClone = t
+        i += 1
+    print(window_range)
+    
+    return s[window_range[0]:window_range[1]+1]
 
 
 print(minWindow('ADOBECODEBANC', "ABC"))
