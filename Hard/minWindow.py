@@ -7,41 +7,36 @@
 # Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
 
 def minWindow(s, t):
-    m = len(s)
-    n = len(t)
-
-    if s == t:
-        return t 
+    if not s or not t:
+        return ""
     
-    if m < n:
-        return ''
-    
-    r=0
-    l=0
-    minWin = float('inf')
-    i=0
-    window_range = ()
-    tClone = t
+    from collections import Counter
 
-    while i < m:
-        if s[i] in tClone:
-            if r == l and tClone == t:
-                l = i
-            r = i
-            tClone = tClone.replace(s[i], '', 1)
-            
-        if len(tClone) == 0:
-            w= r-l+1
-            if (minWin > w):
-                window_range = (l,r)
-                minWin = w
-            i = l
+    t_count = Counter(t)
+    window = {}
+    have, need = 0, len(t_count)
+    res, res_len = [-1, -1], float("inf")
+    l = 0
+
+    for r in range(len(s)):
+        c = s[r]
+        window[c] = window.get(c, 0) + 1
+
+        if c in t_count and window[c] == t_count[c]:
+            have += 1
+
+        while have == need:
+            if (r - l + 1) < res_len:
+                res = [l, r]
+                res_len = r - l + 1
+
+            window[s[l]] -= 1
+            if s[l] in t_count and window[s[l]] < t_count[s[l]]:
+                have -= 1
             l += 1
-            r = l
-            tClone = t
-        i += 1
-    
-    return s[window_range[0]:window_range[1]+1]
 
+    l, r = res
+    return s[l:r+1] if res_len != float("inf") else ""
 
 print(minWindow('ADOBECODEBANC', "ABC"))
+
