@@ -40,7 +40,6 @@ def minWindow(s, t):
             r = l
             tClone = t
         i += 1
-    print(window_range)
     
     return s[window_range[0]:window_range[1]+1]
 
