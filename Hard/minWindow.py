@@ -29,7 +29,7 @@ def minWindow(s, t):
                 l = i
             else:
                 r = i
-            tClone = tClone.replace(s[i], 'a', 1)
+            tClone = tClone.replace(s[i], '', 1)
             
         if len(tClone) == 0:
             w= r-l+1
