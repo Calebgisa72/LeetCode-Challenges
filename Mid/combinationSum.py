@@ -18,21 +18,16 @@
 def combinationSum(candidates, target):
     n = len(candidates)
     res,sol = [],[]
-    def backtrack(i):
-        if(i == 3):
-            if sum(x for x in sol) == target:
-                res.append(sol[:])
-            return
+    # def backtrack(total):
+    #     if total == target:
+    #         res.append(sol[:])
+    #         return
+    #     if total > target:
+    #         return
         
-        # Ignore the left
-        backtrack(i+1)
+    #     for i in range
 
-        # Solve the left
-        sol.append(candidates[i%n])
-        backtrack(i+1)
-        sol.pop()
-
-    backtrack(0)
+    # backtrack(0)
     return res
 
 print(combinationSum([2,3,5],4))
