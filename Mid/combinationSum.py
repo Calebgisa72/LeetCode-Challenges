@@ -9,7 +9,6 @@
 # Output: [[2,2,2,2],[2,3,3],[3,5]]
 
 def combinationSum(candidates, target):
-    n = len(candidates)
     res = []
     stack = []
     seen = set()
