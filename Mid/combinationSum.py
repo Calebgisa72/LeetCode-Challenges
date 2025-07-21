@@ -10,6 +10,32 @@
 
 def combinationSum(candidates, target):
     n = len(candidates)
+    res = []
+    stack = []
+    seen = set()
+
+    for num in candidates:
+        stack.append([num])
     
+    while stack:
+        top: list = stack.pop()
+
+        if tuple(sorted(top)) in seen:
+            continue
+
+        if sum(top) == target:
+            res.append(top[:])
+            seen.add(tuple(sorted(top)))
+            continue
+
+        if sum(top) > target:
+            continue
+        
+        for num in candidates:
+            newT = top[:]
+            newT.append(num)
+            stack.append(newT)
+
+    return res
 
 print(combinationSum([2,3,5],8))
