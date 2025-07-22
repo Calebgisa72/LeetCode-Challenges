@@ -24,15 +24,13 @@ def exist(board, word):
             x,y = stack.popleft()
 
             if x >= 0  and x < m and y >= 0 and y < n and (x,y) not in seen and board[x][y] == word[find]:
-
                 find += 1
                 seen.add((x,y))
 
-                stack.append((x+1,y))
-                stack.append((x-1,y))
                 stack.append((x,y+1))
+                stack.append((x-1,y))
                 stack.append((x,y-1))
-
+                stack.append((x+1,y))
 
     for i in range(m):
         for j in range(n):
@@ -41,7 +39,8 @@ def exist(board, word):
 
     return False
 
-board = [["A","B"],
-         ["C","D"]]
+board = [["A","B","C","E"],
+         ["S","F","C","S"],
+         ["A","D","E","E"]]
 
-print(exist(board, "ABDC"))
+print(exist(board, "SEED"))
