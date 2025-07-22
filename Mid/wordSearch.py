@@ -7,30 +7,29 @@
 # Output: true
 
 def exist(board, word):
-    from collections import deque
     m,n = len(board), len(board[0])
     t = len(word)
 
     def dfs(i,j):
-        stack = deque()
-        stack.append((i,j))
         find = 0
+        stack = [(i,j)]
         seen = set()
 
         while stack:
             if find == t:
                 return True
             
-            x,y = stack.popleft()
+            x,y = stack.pop()
 
             if x >= 0  and x < m and y >= 0 and y < n and (x,y) not in seen and board[x][y] == word[find]:
                 find += 1
                 seen.add((x,y))
 
-                stack.append((x,y+1))
-                stack.append((x-1,y))
-                stack.append((x,y-1))
                 stack.append((x+1,y))
+                stack.append((x-1,y))
+                stack.append((x,y+1))
+                stack.append((x,y-1))
+
 
     for i in range(m):
         for j in range(n):
@@ -43,4 +42,4 @@ board = [["A","B","C","E"],
          ["S","F","C","S"],
          ["A","D","E","E"]]
 
-print(exist(board, "ABCCED"))
+print(exist(board, "ABFCS"))
