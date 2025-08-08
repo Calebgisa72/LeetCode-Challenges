@@ -5,3 +5,16 @@
 # Input: nums = [2,-1,1]
 # Output: 1
 # Explanation: 1 and -1 are both the closest numbers to 0, so 1 being larger is returned.
+
+def findClosestNumber(nums):
+    closest = float('inf')
+    for num in nums:
+        if abs(num) == closest:
+            if abs(num) > 0:
+                closest = num
+        if abs(num) < closest:
+            closest = num
+    
+    return closest
+
+print(findClosestNumber([-4,-2,1,4,8]))
