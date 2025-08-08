@@ -9,12 +9,12 @@
 def findClosestNumber(nums):
     closest = float('inf')
     for num in nums:
-        if abs(num) == closest:
-            if abs(num) > 0:
+        if abs(num) == abs(closest):
+            if num > 0:
                 closest = num
-        if abs(num) < closest:
+        if abs(num) < abs(closest):
             closest = num
     
     return closest
 
-print(findClosestNumber([-4,-2,1,4,8]))
+print(findClosestNumber([2,1,1,-1,100000]))
