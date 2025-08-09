@@ -7,7 +7,7 @@
 # Explanation: 1 and -1 are both the closest numbers to 0, so 1 being larger is returned.
 
 def findClosestNumber(nums):
-    closest = float('inf')
+    closest = nums[0]
     for num in nums:
         if abs(num) == abs(closest):
             if num > 0:
