@@ -32,3 +32,7 @@ def largestNumber(nums):
             if newT not in seen:
                 stack.append(newT)
                 seen.add(newT)
+    
+    return largeNum
+
+print(largestNumber)
