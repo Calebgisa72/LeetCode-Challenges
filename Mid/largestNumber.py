@@ -28,11 +28,12 @@ def largestNumber(nums):
                 largeNum = str(s)
 
         for num in nums:
+            print(stack)
             newT = top[:]
             newT.append(num)
-            if newT not in seen:
+            if tuple(newT) not in seen and num not in newT:
                 stack.append(newT)
-                seen.add(newT)
+                seen.add(tuple(newT))
     
     return largeNum
 
