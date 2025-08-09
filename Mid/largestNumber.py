@@ -35,4 +35,4 @@ def largestNumber(nums):
     
     return largeNum
 
-print(largestNumber)
+print(largestNumber([10,2]))
