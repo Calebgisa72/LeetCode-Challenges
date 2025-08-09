@@ -10,3 +10,13 @@
 # Input: nums = [3,30,34,5,9]
 # Output: "9534330"
 
+def largestNumber(nums):
+    stack = []
+    largeNum = '0'
+    seen = set()
+
+    for num in nums:
+        stack.append([num])
+
+    while stack:
+        top = stack.pop
