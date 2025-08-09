@@ -21,10 +21,11 @@ def largestNumber(nums):
     while stack:
         top = stack.pop()
 
-        s = sum(x for x in top)
+        if len(top) == len(nums):
+            s = sum(x for x in top)
 
-        if s > int(largeNum):
-            largeNum = str(s)
+            if s > int(largeNum):
+                largeNum = str(s)
 
         for num in nums:
             newT = top[:]
