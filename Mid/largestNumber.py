@@ -19,4 +19,16 @@ def largestNumber(nums):
         stack.append([num])
 
     while stack:
-        top = stack.pop
+        top = stack.pop()
+
+        s = sum(x for x in top)
+
+        if s > int(largeNum):
+            largeNum = str(s)
+
+        for num in nums:
+            newT = top[:]
+            newT.append(num)
+            if newT not in seen:
+                stack.append(newT)
+                seen.add(newT)
