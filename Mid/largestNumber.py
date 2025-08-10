@@ -11,6 +11,7 @@
 # Output: "9534330"
 
 def largestNumber(nums):
+    # from collections import Counter
     stack = []
     largeNum = '0'
     seen = set()
@@ -19,22 +20,28 @@ def largestNumber(nums):
         stack.append([num])
 
     while stack:
+        numsCopy: list = nums[:]
         top = stack.pop()
 
+        for y in top:
+            numsCopy.remove(y)
+
         if len(top) == len(nums):
-            s = sum(x for x in top)
+            s = ''.join(map(str, top))
+            print(f's {s}')
 
-            if s > int(largeNum):
-                largeNum = str(s)
+            if int(s) > int(largeNum):
+                largeNum = s
+            continue
 
-        for num in nums:
+        for num in numsCopy:
             print(stack)
             newT = top[:]
             newT.append(num)
-            if tuple(newT) not in seen and num not in newT:
+            if tuple(newT) not in seen:
                 stack.append(newT)
                 seen.add(tuple(newT))
     
     return largeNum
 
-print(largestNumber([10,2]))
+print(largestNumber([3,30,34,5,9]))
