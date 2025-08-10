@@ -11,7 +11,6 @@
 # Output: "9534330"
 
 def largestNumber(nums):
-    # from collections import Counter
     stack = []
     largeNum = '0'
     seen = set()
