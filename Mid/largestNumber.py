@@ -22,7 +22,8 @@ def largestNumber(nums):
     # Sort with the custom comparator
     nums_str.sort(key=cmp_to_key(compare))
     
-    # Join the result
     result = ''.join(nums_str)
+
+    
 
 print(largestNumber([0,9,8,7,6,5,4,3,2,1]))
