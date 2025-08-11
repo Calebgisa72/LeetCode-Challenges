@@ -13,7 +13,6 @@
 def largestNumber(nums):
     stack = []
     largeNum = '0'
-    seen = set()
 
     for num in nums:
         stack.append([num])
@@ -37,10 +36,9 @@ def largestNumber(nums):
             print(stack)
             newT = top[:]
             newT.append(num)
-            if tuple(newT) not in seen:
-                stack.append(newT)
-                seen.add(tuple(newT))
+            stack.append(newT)
+               
     
     return largeNum
 
-print(largestNumber([3,30,34,5,9]))
+print(largestNumber([0,9,8,7,6,5,4,3,2,1]))
