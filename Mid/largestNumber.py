@@ -11,6 +11,7 @@
 # Output: "9534330"
 
 def largestNumber(nums):
+    from functools import cmp_to_key
     nums_str = list(map(str, nums))
     
     def compare(a, b):
